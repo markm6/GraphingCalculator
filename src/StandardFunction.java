@@ -7,7 +7,7 @@ public class StandardFunction {
         this.degree = degree;
         this.coefficients = coefficients;
     }
-
+// testing
     /* Returns f(x) for a given x */
     public double func(double x) {
         double sum = 0.0;
