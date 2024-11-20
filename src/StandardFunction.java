@@ -9,7 +9,7 @@ public class StandardFunction {
     }
 // testing
     /* Returns f(x) for a given x */
-    public double func(double x) {
+    public double f(double x) {
         double sum = 0.0;
         for (int i = 0; i < coefficients.size(); i++) {
             double currentCoeff = coefficients.get(i);          // ex. 3x^2 + 7x + 5. Degree = 2. Coefficients = 3, 7, 5

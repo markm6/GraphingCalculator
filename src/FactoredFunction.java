@@ -11,7 +11,7 @@ public class FactoredFunction {
     }
 
     /* Returns f(x) for a given x */
-    public double func(double x) {
+    public double f(double x) {
         double product = aValue;
         for (int i = 0; i < zeroes.size(); i++) {
             double currentZero = zeroes.get(i);          // ex. 3x^2 + 7x + 5. Degree = 2. Coefficients = 3, 7, 5
@@ -22,7 +22,10 @@ public class FactoredFunction {
     // TODO: add equation function
     public String getEquation() {
         String out = "";
-        // add (x - zero) to the string out for each zero
+        for (int i = 0; i < zeroes.size(); i++) {
+            out += "(x - )" + zeroes.get(i);
+        }
+       
         return out;
     }
 }
