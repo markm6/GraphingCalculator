@@ -9,20 +9,25 @@ public class FactoredFunction {
         this.zeroes = zeroes;
         this.aValue = aValue;
     }
+    public FactoredFunction(double aValue, ArrayList<Double> zeroes) {
+        this.zeroes = zeroes;
+        this.aValue = aValue;
+        this.degree = zeroes.size();
+    }
 
     /* Returns f(x) for a given x */
     public double f(double x) {
         double product = aValue;
-        for (int i = 0; i < zeroes.size(); i++) {
-            double currentZero = zeroes.get(i);          // ex. 3x^2 + 7x + 5. Degree = 2. Coefficients = 3, 7, 5
-            product *= (i - currentZero);
+        for (int i = 0; i < degree; i++) {
+            double currentZero = zeroes.get(i);
+            product *= (x - currentZero);
         }
         return product;
     }
     // TODO: add equation function
     public String getEquation() {
         String out = "";
-        for (int i = 0; i < zeroes.size(); i++) {
+        for (int i = 0; i < degree; i++) {
             out += "(x - )" + zeroes.get(i);
         }
        
