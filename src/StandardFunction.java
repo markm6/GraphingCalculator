@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-public class StandardFunction {
+public class StandardFunction extends Function {
     private int degree;
     private ArrayList<Double> coefficients;
 
@@ -8,7 +8,7 @@ public class StandardFunction {
         this.coefficients = coefficients;
     }
     public StandardFunction(ArrayList<Double> coefficients) {
-        this.degree = coefficients.size();
+        this.degree = coefficients.size() - 1;
         this.coefficients = coefficients;
     }
 
@@ -28,33 +28,36 @@ public class StandardFunction {
         for (int i = 0; i < coefficients.size(); i++) {
             double currentCoeff = Math.round(coefficients.get(i) * 100) / 100.0;
             double absCoeff = Math.abs(currentCoeff);
-            boolean positive = coefficients.get(i) < 0;
-            int exponent = degree - i - 1;
+            boolean positive = coefficients.get(i) > 0;
+            int exponent = degree - i;
             if (currentCoeff != 0) {
-                if (exponent == degree) {
-                    // TODO: convert exponent to unicode exponent character
-                    equation += currentCoeff + "x^" + degree + " ";
+                String sign;
+                if (positive) {
+                    sign = "+";
                 } else {
-                    String sign;
-                    if (positive) {
-                        sign = "+";
-                    } else {
-                        sign = "-";
-                    }
+                    sign = "-";
+                }
 
-                    // display as int if coefficient is an integer
-                    String strCoeff;
-                    if (absCoeff == Math.rint(absCoeff)) {
-                        System.out.println((int) absCoeff);
-                        strCoeff = "" + ((int) absCoeff);
-                    } else {
-                        strCoeff = "" + absCoeff;
-                    }
-                    if (exponent == 0) {
-                        equation += sign + " " + strCoeff;
-                    } else {
-                        equation += sign + " " + strCoeff + "x^" + exponent + " ";
-                    }
+                // display as int if coefficient is an integer
+                String strCoeff;
+                if (absCoeff == Math.rint(absCoeff) && absCoeff == 1) {
+                    strCoeff = "";
+                } else if (absCoeff == Math.rint(absCoeff)) {
+                    strCoeff = "" + ((int) absCoeff);
+                } else {
+                    strCoeff = "" + absCoeff;
+                }
+
+                // TODO: convert exponent to unicode exponent character
+                if (exponent == 0) {
+                    equation += sign + " " + strCoeff;
+                } else if (exponent == 1) {
+                    equation += sign + " " + strCoeff + "x" + " ";
+                } else if (exponent == degree) {
+                    
+                    equation += strCoeff + "x^" + degree + " ";
+                } else {
+                    equation += sign + " " + strCoeff + "x^" + exponent + " ";
                 }
             }
         }

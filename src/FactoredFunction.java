@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-public class FactoredFunction {
+public class FactoredFunction extends Function {
     private int degree;
     private ArrayList<Double> zeroes;
     private double aValue;
@@ -24,7 +24,7 @@ public class FactoredFunction {
         }
         return product;
     }
-    // TODO: add equation function
+
     public String getEquation() {
         String out = "";
         for (int i = 0; i < degree; i++) {
