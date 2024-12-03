@@ -64,4 +64,13 @@ public class StandardFunction extends Function {
         return equation;
     }
 
+    public String info() {
+        String str = "Function f(x) = " + getEquation();
+        str += "\nDegree: " + degree;
+        // The y-intercept of a polynomial function is simply the constant, or, the last coefficient
+        // Therefore, no calculation using f(x) is needed.
+        str += "\nY-intercept: " + coefficients.get(coefficients.size() - 1);
+        return str;
+    }
+
 }

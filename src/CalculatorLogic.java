@@ -12,6 +12,22 @@ public class CalculatorLogic {
     Scanner scan = new Scanner(System.in);
 
     public CalculatorLogic() { }
+
+    /**
+     * Utility function to return a specific double in a String at an index. 
+     * <p>
+     * PRECONDITION: <code>str</code> has variables in the format <code>n1,n2,n3...</code> 
+     * and index does not exceed c-1 where c is the number of commas in the string
+     * @param str String to parse doubles from
+     * @param num Index of double
+     * @return Double in the String
+     */
+    private double parseDouble(String str, int index) {
+        String currStr = str;
+        int i = 0;
+        // stub method
+        return 0;
+    }
     public void start() {
 
         System.out.println("Welcome to Polynomial Grapher!");
