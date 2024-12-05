@@ -78,10 +78,18 @@ public class Graph {
 
     /**
      * Sets the size instance variable of the Graph object.
-     * @param s Size to set
+     * @param s Integer size to set
      */
     public void setSize(int s) {
         size = s;
+    }
+
+    /**
+     * Sets the size instance variable of the Graph object.
+     * @param s Double size to set that will be rounded to the nearest integer
+     */
+    public void setSize(double s) {
+        size = (int) Math.round(s);
     }
 
 }
