@@ -41,7 +41,7 @@ public class StandardFunction extends Function {
 
                 // display as int if coefficient is an integer
                 String strCoeff;
-                if (absCoeff == Math.rint(absCoeff) && absCoeff == 1) {
+                if (absCoeff == Math.rint(absCoeff) && absCoeff == 1 && exponent > 0) {
                     strCoeff = "";
                 } else if (absCoeff == Math.rint(absCoeff)) {
                     strCoeff = "" + ((int) absCoeff);
@@ -54,7 +54,6 @@ public class StandardFunction extends Function {
                 } else if (exponent == 1) {
                     equation += sign + " " + strCoeff + "x" + " ";
                 } else if (exponent == degree) {
-                    
                     equation += strCoeff + "x^" + degree + " ";
                 } else {
                     equation += sign + " " + strCoeff + "x^" + exponent + " ";
