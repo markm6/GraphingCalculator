@@ -5,7 +5,6 @@ public class CalculatorLogic {
     private int degree = 0;
     private double x = 0;
     private double a = 0;
-    private Graph grapher = new Graph(50);
     private boolean again = true;
     private String answer = "";
     String dimension = "";
@@ -13,21 +12,17 @@ public class CalculatorLogic {
 
     public CalculatorLogic() { }
 
-    /**
-     * Utility function to return a specific double in a String at an index. 
-     * <p>
-     * PRECONDITION: <code>str</code> has variables in the format <code>n1,n2,n3...</code> 
-     * and index does not exceed c-1 where c is the number of commas in the string
-     * @param str String to parse doubles from
-     * @param num Index of double
-     * @return Double in the String
-     */
-    private double parseDouble(String str, int index) {
-        String currStr = str;
-        int i = 0;
-        // stub method
-        return 0;
+    private double parseCoordX(String str) {
+        String num1 = str.substring(1, str.indexOf(","));
+        Double n1Double = Double.parseDouble(num1);
+        return (double) n1Double;
     }
+    private double parseCoordY(String str) {
+        String num2 = str.substring(str.indexOf(" ") + 1, str.length() - 1);
+        Double n2Double = Double.parseDouble(num2);
+        return (double) n2Double;
+    }
+    
     public void start() {
 
         System.out.println("Welcome to Polynomial Grapher!");
@@ -70,6 +65,11 @@ public class CalculatorLogic {
                     System.out.println("At " + x + ", " + standardFunc.getEquation() + " is " + standardFunc.f(x));
                 }
             }
+            System.out.print("Enter a coordinate to see if it is on the graph: [Format (x, y)]: ");
+            String cd = scan.nextLine();
+            
+            System.out.println(standardFunc.coordinateInfo(parseCoordX(cd), parseCoordY(cd)));
+
             System.out.println("Thanks for using the Polynomial Grapher! Run again for another polynomial.");
 
         } else {
