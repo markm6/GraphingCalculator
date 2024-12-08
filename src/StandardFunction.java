@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 public class StandardFunction extends Function {
     private int degree;
     private ArrayList<Double> coefficients;
@@ -48,7 +49,6 @@ public class StandardFunction extends Function {
                     strCoeff = "" + absCoeff;
                 }
 
-                // TODO: convert exponent to unicode exponent character
                 if (exponent == 0) {
                     equation += sign + " " + strCoeff;
                 } else if (exponent == 1) {
@@ -72,20 +72,12 @@ public class StandardFunction extends Function {
         str += "\nY-intercept: " + coefficients.get(coefficients.size() - 1);
         return str;
     }
-
-    public String coordinate(String coordinate){
-        String str = "";
-        System.out.println("Enter a coordinate the see if it is on the graph: [Format (x, y)]");
-        String cd = scan.nextLine();
-        String n1 = cd.substring(1, indexOf(",");
-        String n2 = cd.substring(indexOf(" ") + 1, cd.length() - 1);
-        int n1* = Integer.parseInt(n1);
-        int n2* = Integer.parseInt(n2);
-        if (f(x) == n2){
-            boolean line = true;
-            
+    
+    public String coordinateInfo(double x, double y) {
+        if (f(x) == y){
+            return "The coordinate is on the graph!";
         } else {
-            boolean line = false;
+            return "The coordinate is NOT on the graph!";
         }
-        return "The coordinate is on the graph: " + line;
+    }
 }
