@@ -41,7 +41,7 @@ public class CalculatorLogic {
             }
             
             StandardFunction standardFunc = new StandardFunction(degree, coefficients);
-            System.out.println("Your equation is " + standardFunc.getEquation());
+            System.out.println(standardFunc.info());
             System.out.print("What dimension should your square graph be(Enter one INTEGER from 20-50): ");
             //ASSUME THAT THE USER INPUTS AN INTEGER
 
@@ -69,7 +69,7 @@ public class CalculatorLogic {
             String cd = scan.nextLine();
             
             System.out.println(standardFunc.coordinateInfo(parseCoordX(cd), parseCoordY(cd)));
-
+            
             System.out.println("Thanks for using the Polynomial Grapher! Run again for another polynomial.");
 
         } else {
@@ -87,9 +87,8 @@ public class CalculatorLogic {
             }
 
             FactoredFunction factoredFunc = new FactoredFunction(degree, a, zeroes);
-            System.out.println("Your equation is " + factoredFunc.getEquation());
+            System.out.println(factoredFunc.info());
             System.out.println("What dimension should your square graph be(Enter one INTEGER from 20-50): ");
-
 
             Graph graph = new Graph(scan.nextInt());
             graph.graphFunction(factoredFunc);
@@ -110,6 +109,13 @@ public class CalculatorLogic {
                     System.out.println("At " + x + ", " + factoredFunc.getEquation() + " is " + factoredFunc.f(x));
                 }
             }
+
+            System.out.print("Enter a coordinate to see if it is on the graph: [Format (x, y)]: ");
+            String cd = scan.nextLine();
+            
+            System.out.println(factoredFunc.coordinateInfo(parseCoordX(cd), parseCoordY(cd)));
+
+            System.out.println("Thanks for using the Polynomial Grapher! Run again for another polynomial.");
         }
 
     }

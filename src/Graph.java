@@ -34,10 +34,9 @@ public class Graph {
 
             int actualX = x - offset;
             int fx = (int) Math.round(func.f(actualX));
-            int lastFX = (int) Math.round(func.f(actualX - 1));
             int nextFX = (int) Math.round(func.f(actualX + 1));
             for (int y = 0; y < size; y++) {
-                int actualY = y - offset;
+                int actualY = offset - y;
                 String chr;
                 if (actualY == fx) {
                     if (actualY == 0) {

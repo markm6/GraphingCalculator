@@ -71,12 +71,4 @@ public class StandardFunction extends Function {
         str += "\nY-intercept: " + coefficients.get(coefficients.size() - 1);
         return str;
     }
-    
-    public String coordinateInfo(double x, double y) {
-        if (f(x) == y){
-            return "The coordinate is on the graph!";
-        } else {
-            return "The coordinate is NOT on the graph!";
-        }
-    }
 }

@@ -37,12 +37,29 @@ public class FactoredFunction extends Function {
     
     public String getEquation() {
         String out = "f(x) = ";
+        if (isInteger(aValue)) {
+            out += (int) Math.rint(aValue);
+        } else {
+            out += aValue;
+        }
         for (int i = 0; i < degree; i++) {
             double currentZero = zeroes.get(i);
-            if (isInteger(currentZero)) {
-                out += "(x - )" + ((int) currentZero);
+            String sign;
+            if (currentZero < 0) {
+                sign = "+";
+            } else if (currentZero > 0) {
+                sign = "-";
             } else {
-                out += "(x - )" + currentZero;
+                sign = "";
+            }
+            if (isInteger(currentZero)) {
+                if (currentZero != 0) {
+                    out += "(x " + sign + " " + ((int) Math.abs(currentZero)) + ")";
+                } else {
+                    out += "(x)";
+                }
+            } else {
+                out += "(x " + sign + " (" + Math.abs(currentZero) + ")";
             }
         }
        
@@ -61,4 +78,5 @@ public class FactoredFunction extends Function {
         str += "\nY-intercept: " + f(0);
         return str;
     }
+
 }
