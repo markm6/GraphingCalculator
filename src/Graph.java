@@ -47,8 +47,9 @@ public class Graph {
                     } else {
                         chr = "#";
                     }
-                } else if ((lastFX < actualY && actualY < nextFX)
-                        || (nextFX < actualY && actualY < lastFX)) {
+                // Graph continuity by including points at ranges between f(x) and f(x + 1)
+                } else if ((fx <= actualY && actualY <= nextFX)
+                        || (nextFX <= actualY && actualY <= fx)) {
                     chr = "#";
                 } else {
                     if (actualY == 0) {
